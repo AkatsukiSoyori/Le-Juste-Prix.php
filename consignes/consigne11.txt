@@ -1,3 +1,32 @@
+Exercice 11 : 
+Créer un formulaire html avec la méthode GET avec un input texte pour un pseudo un input submit et afficher le pseudo après avoir cliquer sur le bouton submit.
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire GET</title>
+</head>
+<body>
+    <h2>Formulaire GET</h2>
+    <form method="GET">
+        <label for="pseudo">Pseudo :</label>
+        <input type="text" name="pseudo" id="pseudo" required>
+        <input type="submit" value="Afficher le pseudo">
+    </form>
+
+    <?php
+    if (isset($_GET['pseudo'])) {
+        $pseudo = $_GET['pseudo'];
+        echo "<h3>Votre pseudo est : $pseudo</h3>";
+    }
+    ?>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+code final :
+
 <!DOCTYPE html>
 <html>
 <head>
