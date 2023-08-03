@@ -4,9 +4,12 @@
     <title>Hello, World 2023!</title>
 </head>
 <body>
-    <?php
-    // Affiche le texte "Hello, World 2023!" dans le navigateur
-    echo "Hello, World 2023!";
-    ?>
+<?php
+// Déclaration de la variable contenant le message
+$message = "Hello World !!";
+
+// Affichage du contenu de la variable
+echo $message;
+?>
 </body>
 </html>
