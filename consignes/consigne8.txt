@@ -1,3 +1,18 @@
+Exercice 8 : 	
+	$villes = ['Paris','Marseille','Reims','Charleville'];
+	Copier-coller la ligne au-dessus ↖️ et afficher chaque ville.
+
+
+// Déclaration du tableau contenant les villes
+$villes = ['Paris', 'Marseille', 'Reims', 'Charleville'];
+
+// Affichage de chaque ville à l'aide d'une boucle foreach
+foreach ($villes as $ville) {
+    echo $ville . "<br>";
+}
+
+________________________________________________________________________________________________________________________________
+
 <!DOCTYPE html>
 <html>
 <head>
