@@ -1,2 +1,0 @@
-Exercice 13 :
-Vous allez devoir développer un juste prix. C’est-à-dire que l’algorithme va générer un nombre aléatoire entre 1 et 1000 (ou plus) et qu'à chaque fois que vous entrerez un entier dans un formulaire il répond par c’est plus ou c’est moins jusqu'à ce que la valeur aléatoire soit trouvée.
