@@ -5,28 +5,20 @@
 </head>
 <body>
 <?php
-// Déclaration de la variable contenant le message principal
+// Partie 1
 $message = "Hello World !!";
-
-// Concaténation de "2023" à la variable $message
 $message .= " 2023";
+echo $message . "<br>"; // Ajout du saut de ligne
 
-// Affichage du contenu de la variable
-echo $message;
-
-// Déclaration et initialisation de deux variables contenant les entiers
+// Partie 2
 $a = 10;
 $b = 20;
-
-// Affichage des valeurs avant l'inversion
 echo "Avant l'inversion : a = " . $a . ", b = " . $b . "<br>";
 
-// Échange des valeurs en utilisant une variable temporaire
 $temp = $a;
 $a = $b;
 $b = $temp;
 
-// Affichage des valeurs après l'inversion
 echo "Après l'inversion : a = " . $a . ", b = " . $b . "<br>";
 ?>
 </body>
