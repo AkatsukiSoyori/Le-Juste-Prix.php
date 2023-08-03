@@ -1,3 +1,33 @@
+Exercice 12 : 
+Créer un formulaire html avec la méthode POST avec un input texte pour un pseudo un input submit et afficher le pseudo après avoir cliqué sur le bouton submit.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire POST</title>
+</head>
+<body>
+    <h2>Formulaire POST</h2>
+    <form method="POST">
+        <label for="pseudo">Pseudo :</label>
+        <input type="text" name="pseudo" id="pseudo" required>
+        <input type="submit" value="Afficher le pseudo">
+    </form>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['pseudo'])) {
+            $pseudo = $_POST['pseudo'];
+            echo "<h3>Votre pseudo est : $pseudo</h3>";
+        }
+    }
+    ?>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------
+Code final :
+
 <!DOCTYPE html>
 <html>
 <head>
