@@ -1,0 +1,240 @@
+Exercice 15 :
+En partant de l’exercice 14 mettre en place la sauvegarde de la connexion et mettre en place un système de connexion. Pour cela, renseignez-vous sur les $_SESSION en php.
+
+
+Login.php 
+
+<?php
+session_start();
+
+// Vérifier si le formulaire a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupérer les données du formulaire
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $mot_de_passe = isset($_POST['mot_de_passe']) ? $_POST['mot_de_passe'] : '';
+
+    // Les identifiants valides (vous pouvez les changer selon vos besoins)
+    $email_valide = 'email@email.fr';
+    $mot_de_passe_valide = 'test';
+
+    // Vérifier les identifiants
+    if ($email === $email_valide && $mot_de_passe === $mot_de_passe_valide) {
+        // Enregistrer la connexion dans la session
+        $_SESSION['connecte'] = true;
+        $_SESSION['email'] = $email;
+
+        // Rediriger vers la page d'accueil ou une autre page sécurisée
+        header('Location: index.php');
+        exit;
+    } else {
+        // Afficher un message d'erreur si les identifiants sont incorrects
+        $messageErreur = "Les identifiants sont incorrects.";
+    }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connexion</title>
+</head>
+<body>
+<h2>Connexion</h2>
+<?php if (isset($messageErreur)) { ?>
+    <p style="color: red;"><?php echo $messageErreur; ?></p>
+<?php } ?>
+<form method="POST">
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="email" required><br>
+    <label for="mot_de_passe">Mot de passe :</label>
+    <input type="password" name="mot_de_passe" id="mot_de_passe" required><br>
+    <input type="submit" value="Se connecter">
+</form>
+</body>
+</html>
+
+
+Index.php :
+
+<?php
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['connecte']) || $_SESSION['connecte'] !== true) {
+    // Rediriger vers la page de connexion s'il n'est pas connecté
+    header('Location: login.php');
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello, World 2023!</title>
+</head>
+<body>
+<!-- Votre code HTML pour la page d'accueil sécurisée -->
+<h2>Bienvenue <?php echo $_SESSION['email']; ?> !</h2>
+<p>Vous êtes connecté.</p>
+</body>
+</html>
+
+---------------------------------------------------------------------------------------------------------
+Code final :
+
+<?php
+// Vérifier si le formulaire a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupérer les données du formulaire
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $mot_de_passe = isset($_POST['mot_de_passe']) ? $_POST['mot_de_passe'] : '';
+
+    // Les identifiants valides (vous pouvez les changer selon vos besoins)
+    $email_valide = 'email@email.fr';
+    $mot_de_passe_valide = 'test';
+
+    // Vérifier les identifiants
+    if ($email === $email_valide && $mot_de_passe === $mot_de_passe_valide) {
+        // Enregistrer la connexion dans la session
+        $_SESSION['connecte'] = true;
+        $_SESSION['email'] = $email;
+
+        // Rediriger vers la page d'accueil ou une autre page sécurisée
+        header('Location: index.php');
+        exit;
+    } else {
+        // Afficher un message d'erreur si les identifiants sont incorrects
+        $messageErreur = "Les identifiants sont incorrects.";
+    }
+}
+
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['connecte']) || $_SESSION['connecte'] !== true) {
+    // Rediriger vers la page de connexion s'il n'est pas connecté
+    header('Location: login.php');
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello, World 2023!</title>
+</head>
+<body>
+<!-- Partie 1 -->
+<?php
+$message = "Hello World !!";
+$message .= " 2023";
+echo $message . "<br>"; // Ajout du saut de ligne
+?>
+
+<!-- Partie 2 -->
+<?php
+$a = 10;
+$b = 20;
+echo "Avant l'inversion : a = " . $a . ", b = " . $b . "<br>";
+
+$temp = $a;
+$a = $b;
+$b = $temp;
+
+echo "Après l'inversion : a = " . $a . ", b = " . $b . "<br>";
+?>
+
+<!-- Partie 3 -->
+<?php
+for ($i = 1; $i <= 10; $i++) {
+    if ($i % 2 == 0) {
+        echo "Hello World !! - Itération $i <br>";
+    }
+}
+?>
+
+<!-- Partie 4 -->
+<?php
+$randomNumber = rand(1, 3);
+
+while ($randomNumber != 2) {
+    echo "Le chiffre aléatoire est $randomNumber <br>";
+    $randomNumber = rand(1, 3);
+}
+
+echo "Le chiffre aléatoire est maintenant 2<br>";
+?>
+
+<!-- Déclaration du tableau contenant les villes avec les informations -->
+<?php
+$villes = [
+    [
+        'ville' => 'Paris',
+        'habitants' => '2,161 millions',
+        'superficie' => '104,5',
+        'altitude' => '35',
+    ],
+    [
+        'ville' => 'Marseille',
+        'habitants' => '861 635',
+        'superficie' => '240,6',
+        'altitude' => '242',
+    ],
+    [
+        'ville' => 'Reims',
+        'habitants' => '184 076',
+        'superficie' => '46,9',
+        'altitude' => '95',
+    ],
+    [
+        'ville' => 'Charleville',
+        'habitants' => '47 847',
+        'superficie' => '31,44',
+        'altitude' => '228',
+    ],
+];
+
+foreach ($villes as $infoVille) {
+    echo "La ville de " . $infoVille['ville'] . " a " . $infoVille['habitants'] . " habitants, pour une superficie de " . $infoVille['superficie'] . " km2, et une altitude de " . $infoVille['altitude'] . " m.<br>";
+}
+?>
+
+<!-- Formulaire POST pour saisir un pseudo -->
+<h2>Formulaire POST</h2>
+<form method="POST">
+    <label for="pseudo">Pseudo :</label>
+    <input type="text" name="pseudo" id="pseudo" required>
+    <input type="submit" value="Afficher le pseudo">
+</form>
+
+<?php
+// Affichage du pseudo saisi après soumission du formulaire
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['pseudo'])) {
+        $pseudo = $_POST['pseudo'];
+        echo "<h3>Votre pseudo est : $pseudo</h3>";
+    }
+}
+?>
+
+<!-- Formulaire POST pour le jeu du juste prix -->
+<h2>Juste Prix</h2>
+<p>Devinez un nombre entre 1 et 1000 (ou plus) :</p>
+<form method="POST">
+    <input type="number" name="essai" required>
+    <input type="submit" value="Vérifier">
+</form>
+
+<!-- Formulaire POST pour se connecter -->
+<h2>Connexion</h2>
+<form method="POST">
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="email" required><br>
+    <label for="mot_de_passe">Mot de passe :</label>
+    <input type="password" name="mot_de_passe" id="mot_de_passe" required><br>
+    <input type="submit" value="Se connecter">
+</form>
+
+</body>
+</html>
+
+------------------------------
+ID : email@email.fr
+MDP : test
