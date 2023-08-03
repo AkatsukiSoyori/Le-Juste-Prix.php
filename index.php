@@ -40,7 +40,7 @@ while ($randomNumber != 2) {
 }
 
 // Une fois que le chiffre aléatoire est égal à 2, afficher le message final
-echo "Le chiffre aléatoire est maintenant 2";
+echo "Le chiffre aléatoire est maintenant 2<br>";
 
 // Déclaration du tableau contenant les villes
 $villes = ['Paris', 'Marseille', 'Reims', 'Charleville'];
