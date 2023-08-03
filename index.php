@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juste Prix</title>
+</head>
+<body>
+<?php
+// Vérifier si le nombre à deviner est déjà enregistré en session
+session_start();
+if (!isset($_SESSION['nombre_a_deviner'])) {
+    // Générer un nombre aléatoire entre 1 et 1000 (vous pouvez changer cette plage si vous le souhaitez)
+    $_SESSION['nombre_a_deviner'] = rand(1, 1000);
+}
+
+// Vérifier si un essai a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['essai'])) {
+        $essai = intval($_POST['essai']);
+
+        // Vérifier si l'essai est correct
+        if ($essai === $_SESSION['nombre_a_deviner']) {
+            echo "Félicitations, vous avez trouvé le juste prix : " . $_SESSION['nombre_a_deviner'];
+            // Réinitialiser le nombre à deviner
+            unset($_SESSION['nombre_a_deviner']);
+        } elseif ($essai < $_SESSION['nombre_a_deviner']) {
+            echo "C'est plus !";
+        } else {
+            echo "C'est moins !";
+        }
+    }
+}
+?>
+
+<h2>Juste Prix</h2>
+<p>Devinez un nombre entre 1 et 1000 (ou plus) :</p>
+<form method="POST">
+    <input type="number" name="essai" required>
+    <input type="submit" value="Vérifier">
+</form>
+
+</body>
+</html>
