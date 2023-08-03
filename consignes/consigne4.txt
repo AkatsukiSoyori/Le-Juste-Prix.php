@@ -1,0 +1,2 @@
+Exercice 4 : 
+Écrire un entier dans une variable a et un autre dans une variable b et inverser les 2 valeurs.
