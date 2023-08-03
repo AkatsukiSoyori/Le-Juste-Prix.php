@@ -1,3 +1,24 @@
+Exercice 7 :
+Stocker dans une variable un chiffre aléatoire entre 1 et 3 et tant que le chiffre aléatoire n’est pas égal à 2 afficher ce chiffre aléatoire : ‘Le chiffre aléatoire est 1’.
+
+
+<?php
+// Générer un chiffre aléatoire entre 1 et 3
+$randomNumber = rand(1, 3);
+
+// Tant que le chiffre aléatoire n'est pas égal à 2, l'afficher
+while ($randomNumber != 2) {
+    echo "Le chiffre aléatoire est $randomNumber <br>";
+    $randomNumber = rand(1, 3);
+}
+
+// Une fois que le chiffre aléatoire est égal à 2, afficher le message final
+echo "Le chiffre aléatoire est maintenant 2";
+?>
+
+
+____________________________________________________________________________________________
+
 <!DOCTYPE html>
 <html>
 <head>
