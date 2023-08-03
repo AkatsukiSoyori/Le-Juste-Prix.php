@@ -1,3 +1,37 @@
+Exercice 9 : 
+	$villes = ['Paris','Marseille','Reims','Charleville'];
+	Copier-coller la ligne au-dessus ↖️.
+	Utiliser une boucle pour afficher chaque ville. 
+
+
+<?php
+// Déclaration du tableau contenant les villes
+$villes = ['Paris', 'Marseille', 'Reims', 'Charleville'];
+
+// Boucle for pour afficher chaque ville
+for ($i = 0; $i < count($villes); $i++) {
+    echo $villes[$i] . "<br>";
+}
+?>
+
+
+Et avec une boucle While :
+
+<?php
+// Déclaration du tableau contenant les villes
+$villes = ['Paris', 'Marseille', 'Reims', 'Charleville'];
+
+// Utilisation d'une boucle while pour afficher chaque ville
+$i = 0;
+while ($i < count($villes)) {
+    echo $villes[$i] . "<br>";
+    $i++;
+}
+?>
+_____________________________________________________________________________________________________________
+
+Et le code entier :
+
 <!DOCTYPE html>
 <html>
 <head>
