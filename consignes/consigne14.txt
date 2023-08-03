@@ -1,3 +1,6 @@
+Exercice 14 : 
+Créer un formulaire de login html qui demande un email,un mot de passe et un bouton submit. Il actionnera un fichier de traitement dans lequel on stockera dans 2 variables un mot de passe et un email (ex : $email = 'email@email.fr'; $mot_de_passe = 'test';). Puis Vérifier si le mot de passe entré est égal au mot de passe dans la variable, de la même façon avec pour l’email. si les 2 sont valides écrire vous êtes connecté sinon écrire les identifiants sont incorrects. 
+
 <!DOCTYPE html>
 <html>
 <head>
